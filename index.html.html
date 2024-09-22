@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            position: relative; /* Position relative for absolute positioning of the h1 */
+            overflow: hidden; /* Prevent overflow */
+        }
+        img {
+            width: 50vw; /* Responsive width */
+            max-width: 300px; /* Max width for larger screens */
+            animation: scaleAnimation 1s infinite alternate;
+            transition: transform 0.2s, opacity 0.5s;
+        }
+        @keyframes scaleAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1); /* Scale up */
+            }
+        }
+        img:hover {
+            animation: none; /* Stop animation on hover */
+			transform: scale(1.1);
+        }
+        h1, p {
+            position: absolute; /* Position on top of the image */
+            color: white; /* Text color */
+            font-size: 5vw; /* Responsive font size */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for better visibility */
+            top: 0%; /* Positioning from the top */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center align */
+            text-align: center; /* Center the text */
+        }
+		
+		.poo {
+			top: 15%;
+			font-size: 2vw;
+		}
+		.poo2 {
+			top: 70%;
+			font-size: 1.4vw;
+		}
+    </style>
+</head>
+<body>
+    <h1>Hi mel for you🥰</h1>
+	<p class="poo"> from leb and hernan <3  </p>
+    <img id="cakeImage" src="cake.png" alt="Cake" />
+	<br>
+	<p class="poo2"> (click the cake) </p>
+
+    <script>
+        const image = document.getElementById('cakeImage');
+        image.addEventListener('click', () => {
+            image.style.transform = 'scale(1.2)'; // Scale up on click
+            image.style.opacity = '0'; // Fade out
+            setTimeout(() => {
+                window.location.href = 'https://example.com'; // Redirect after fade
+            }, 500); // Match the timeout with the fade duration
+        });
+    </script>
+</body>
+</html>
