@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade In Effect</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling during the fade */
+			background-color: beige;
+			zoom: 120%;
+        }
+        .fade {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 9999; /* Ensure it's on top of other content */
+            opacity: 1;
+            transition: opacity 1s ease-out; /* Fade effect */
+        }
+        .content {
+            opacity: 0; /* Start with content hidden */
+            transition: opacity 1s ease-in 1s; /* Fade in after the white screen */
+        }
+		h1 {
+			color: white;
+			background-color: #b8845c;
+			max-width: 300px;
+			border-radius: 15px;
+			width: 100%;
+			padding: 20px 40px;
+		}
+    </style>
+</head>
+<body>
+    <div class="fade"></div>
+    <div class="content">
+        <center>
+			<br><br><br><br><br><br>
+            <h1>Happy Birthday mel</h1>
+            <p>We made this website just for you!</p>
+			<p>Kindly play the video below ^-^</p>
+			<iframe src="https://drive.google.com/file/d/1Q_YstMnDF6oUwF20UYwO2tt21MRVHHk3/preview" width="350px" height="200px"></iframe>
+			</video>
+        </center>
+    </div>
+
+    <script>
+        const fade = document.querySelector('.fade');
+        const content = document.querySelector('.content');
+
+        // Fade out the white screen after the page loads
+        window.onload = () => {
+            fade.style.opacity = '0'; // Start fading out
+            setTimeout(() => {
+                fade.style.display = 'none'; // Remove from view after fade
+                content.style.opacity = '1'; // Fade in content
+            }, 1000); // Match the timeout with the fade duration
+        };
+    </script>
+</body>
+</html>
